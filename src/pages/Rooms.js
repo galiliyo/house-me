@@ -1,8 +1,8 @@
-import React from "react";
-import Hero from "../components/Hero";
-import Banner from "../components/Banner";
-import { Link } from "react-router-dom";
-import RoomContainer from "../components/RoomContainer";
+import React from 'react'
+import Hero from '../components/Hero'
+import Banner from '../components/Banner'
+import { Link } from 'react-router-dom'
+import RoomContainer from '../components/RoomContainer'
 const Rooms = () => {
   return (
     <>
@@ -15,7 +15,7 @@ const Rooms = () => {
       </Hero>
       <RoomContainer />
     </>
-  );
-};
+  )
+}
 
-export default Rooms;
+export default Rooms

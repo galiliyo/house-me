@@ -4,12 +4,15 @@
   "private": true,
   "dependencies": {
     "contentful": "^7.11.3",
+    "date-fns": "^2.8.1",
+    "node-sass": "^4.13.0",
     "react": "^16.8.6",
     "react-date-range": "^0.9.4",
     "react-dom": "^16.8.6",
     "react-icons": "^3.8.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
+    "react-spinners": "^0.7.2",
     "styled-components": "^4.2.0"
   },
   "scripts": {

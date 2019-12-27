@@ -1,0 +1,33 @@
+.searchFeild {
+  width: 542px;
+  height: 60px;
+  background-color: var(--mainWhite);
+  border-radius: 6px;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  & .icon {
+    font-size: 1.2rem;
+    flex-grow: 1;
+    color: var(--primaryColor);
+  }
+
+  & .iconContainer {
+    padding: 0.3rem;
+    cursor: pointer;
+    display: flex;
+    &:hover .icon {
+      color: var(--secondaryColor);
+    }
+  }
+
+  & input[type='text'] {
+    height: 3rem;
+    width: 100%;
+    font-size: 1.4rem;
+    outline: none;
+    border: none;
+  }
+}

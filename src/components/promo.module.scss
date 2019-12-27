@@ -1,0 +1,37 @@
+.promo {
+  // max-height: 16rem;
+
+}
+.content-container {
+  width: 90vw;
+  max-width: 1170px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.darker-bg {
+  background: #edf5f9;
+}
+
+.illustration-container {
+  flex: 1 1 40%;
+  min-width: 400px;
+  max-width: 600px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.illustration {
+  width: 100%;
+}
+
+.text {
+  flex: 1 1 60%;
+  max-width: 600px;
+}

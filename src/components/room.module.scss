@@ -1,0 +1,75 @@
+/* room */
+.room {
+}
+
+.img-container {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: var(--mainTransition);
+}
+
+.img-container:hover {
+  box-shadow: var(--lightShadow);
+  transform: scale(1.02);
+}
+
+.img-container img {
+  width: 100%;
+  display: block;
+  transition: var(--mainTransition);
+}
+
+.first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.4rem 0 0.2rem;
+  & p{
+      color: var(--primaryColor)
+  }
+}
+
+.icon {
+  color: var(--secondaryColor);
+  margin: 0 0.2rem;
+}
+.price-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--mainWhite);
+  padding: 0.3rem 0.6rem 0.5rem;
+  border-bottom-right-radius: 1rem;
+  font-size: 0.5rem;
+  text-align: center;
+  transition: var(--mainTransition);
+}
+.price-top h6 {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: var(--mainSpacing);
+}
+.room-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(0);
+  transition: all 0.3s linear;
+}
+
+.img-container:hover .price-top {
+  opacity: 0;
+}
+.img-container:hover .room-link {
+  transform: translate(-50%, -50%) scale(1);
+}
+.room-info {
+  text-transform: capitalize;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: var(--mainSpacing);
+}

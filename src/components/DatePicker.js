@@ -20,6 +20,10 @@ class Picker extends Component {
           onInit={this.handleSelect}
           onChange={this.handleSelect}
           minDate={date}
+          linkedCalendars={true}
+          showSelectionPreview={true}
+          direction={'vertical'}
+          offsetPositive={30}
         />
       </div>
     )

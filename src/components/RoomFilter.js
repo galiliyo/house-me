@@ -1,13 +1,13 @@
-import React from "react";
-import { useContext } from "react";
-import { RoomContext } from "../context";
-import Title from "../components/Title";
+import React from 'react'
+import { useContext } from 'react'
+import { RoomContext } from '../context'
+// import Title from "../components/Title";
 // get all unique values
 const getUnique = (items, value) => {
-  return [...new Set(items.map(item => item[value]))];
-};
+  return [...new Set(items.map(item => item[value]))]
+}
 export default function RoomFilter({ rooms }) {
-  const context = useContext(RoomContext);
+  const context = useContext(RoomContext)
   const {
     handleChange,
     type,
@@ -18,12 +18,12 @@ export default function RoomFilter({ rooms }) {
     minSize,
     maxSize,
     breakfast,
-    pets
-  } = context;
+    pets,
+  } = context
   // get unique types
-  let types = getUnique(rooms, "type");
+  let types = getUnique(rooms, 'type')
   // add all
-  types = ["all", ...types];
+  types = ['all', ...types]
 
   // map to jsx
   types = types.map((item, index) => {
@@ -31,19 +31,19 @@ export default function RoomFilter({ rooms }) {
       <option value={item} key={index}>
         {item}
       </option>
-    );
-  });
-  let people = getUnique(rooms, "capacity");
+    )
+  })
+  let people = getUnique(rooms, 'capacity')
   people = people.map((item, index) => {
     return (
       <option key={index} value={item}>
         {item}
       </option>
-    );
-  });
+    )
+  })
   return (
     <section className="filter-container">
-      <Title title="search rooms" />
+      <h2>"search rooms" </h2>
       <form className="filter-form">
         {/*select type  */}
         <div className="form-group">
@@ -137,5 +137,5 @@ export default function RoomFilter({ rooms }) {
         {/* end of extras  */}
       </form>
     </section>
-  );
+  )
 }

@@ -1,25 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import defaultImg from "../images/room-1.jpeg";
-import PropTypes from "prop-types";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { IoMdClose, IoIosSearch } from 'react-icons/io'
+import { IoMdStar } from 'react-icons/io'
+import defaultImg from '../images/room-1.jpeg'
+import style from './room.module.scss'
+import PropTypes from 'prop-types'
+
 export default function Room({ room }) {
-  const { name, slug, images, price } = room;
+  const { name, city, slug, images, price, rating } = room
 
   return (
-    <article className="room">
-      <div className="img-container">
+    <article>
+      <div className={style['img-container']}>
         <img src={images[0] || defaultImg} alt="single room" />
-        <div className="price-top">
-          <h6>${price}</h6>
-          <p>per night</p>
-        </div>
-        <Link to={`/rooms/${slug}`} className="btn-primary room-link">
-          Features
-        </Link>
       </div>
-      <p className="room-info">{name}</p>
+      <div className={style['first-row']}>
+        <p>{city}</p>
+        <span className="flex-spacer"></span>
+        <IoMdStar className={style.icon} />
+        <p>{rating}</p>
+      </div>
+
+      <h5>{name}</h5>
+      <h5>${price} <span className="normal">/ night</span></h5>
+
+      <Link to={`/rooms/${slug}`} className={style['room-link']}>
+        Features
+      </Link>
     </article>
-  );
+  )
 }
 
 Room.propTypes = {
@@ -27,6 +36,6 @@ Room.propTypes = {
     name: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     images: PropTypes.arrayOf(PropTypes.string).isRequired,
-    price: PropTypes.number.isRequired
-  })
-};
+    price: PropTypes.number.isRequired,
+  }),
+}

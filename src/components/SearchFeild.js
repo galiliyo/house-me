@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { IoMdClose, IoIosSearch } from 'react-icons/io'
+import styles from './searchFeild.module.scss'
 
 const SearchFeild = props => {
   const [searchStr, setSearchStr] = useState('')
 
   return (
-    <div className="search-feild">
+    <div className={styles.searchFeild}>
       <input
         type="text"
         value={searchStr}
@@ -15,16 +16,16 @@ const SearchFeild = props => {
         }}
       />
       <span
-        className="icon-container"
+        className={styles.iconContainer}
         style={{ opacity: searchStr ? '1' : '0' }}
         onClick={() => {
           setSearchStr('')
         }}
       >
-        <IoMdClose className="icon" />
+        <IoMdClose className={styles.icon} />
       </span>
-      <span className="icon-container" onClick={() => props.setSearchStr}>
-        <IoIosSearch className="icon" style={{ fontSize: ' 2rem' }} />
+      <span className={styles.iconContainer} onClick={() => props.setSearchStr}>
+        <IoIosSearch className={styles.icon} style={{ fontSize: ' 2rem' }} />
       </span>
     </div>
   )

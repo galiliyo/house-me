@@ -1,0 +1,16 @@
+
+/* Hero */
+
+.hero {
+  min-height: calc(100vh - 66px);
+  background: url('../images/banner-lg.png') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3.2rem;
+}
+.hero h2{
+  color: var(--mainWhite);
+}
+
+

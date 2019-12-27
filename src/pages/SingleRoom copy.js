@@ -1,20 +1,24 @@
-import React, {useState,useContext} from 'react'
+import React, { Component } from 'react'
 import defaultBcg from '../images/room-1.jpeg'
+import Hero from '../components/Hero'
+import Banner from '../components/Banner'
 import { Link } from 'react-router-dom'
 import { RoomContext } from '../context'
-// import StyledHero from "../components/StyledHero";
-
-const  SingleRoom = (props)=>  {
 
 
-   
-   
-  
-  // static contextType = RoomContext
-  const roomCtx = useContext(RoomContext) 
-  
-    const { getRoom } = roomCtx
-    const room = getRoom(props.match.params.slug)
+export default class SingleRoom extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      slug: this.props.match.params.slug,
+      defaultBcg,
+    }
+  }
+  static contextType = RoomContext
+  render() {
+    const { getRoom } = this.context
+    const room = getRoom(this.state.slug)
     if (!room) {
       return (
         <div className="error">
@@ -76,7 +80,4 @@ const  SingleRoom = (props)=>  {
       </>
     )
   }
-
-
-
-export default  SingleRoom 
+}
