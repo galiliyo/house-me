@@ -84,6 +84,14 @@ span {
 .margin-bottom-lg{
   margin-bottom: 2rem;
 }
+
+footer {
+  height: 12rem;
+  background-color: var(--mainBlack);
+}
+
+
+
 @media screen and (min-width: 776px) {
   .section-container {
     width: 90vw;

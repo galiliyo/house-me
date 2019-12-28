@@ -1,6 +1,5 @@
 .promo {
-  // max-height: 16rem;
-
+  padding: 1rem 0;
 }
 .content-container {
   width: 90vw;
@@ -11,7 +10,7 @@
   margin: 0 auto;
 }
 
-.row-reverse {
+.even-promo-reverse {
   flex-direction: row-reverse;
 }
 
@@ -34,4 +33,19 @@
 .text {
   flex: 1 1 60%;
   max-width: 600px;
+  padding: 0 1rem;
+}
+
+@media screen and (max-width: 1110px) {
+  .content-container {
+    flex-direction: row;
+  }
+  .even-promo-reverse {
+    flex-direction: row;
+  }
+  .text {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
 }
