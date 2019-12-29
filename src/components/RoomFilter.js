@@ -1,25 +1,44 @@
 import React from 'react'
-import { useContext } from 'react'
-import { RoomContext } from '../context'
-// import Title from "../components/Title";
+import { useContext, useState } from 'react'
+import { useRoomContext } from '../useContext'
+import SearchFeild from './SearchFeild'
+import styles from './roomFilter.module.scss'
+
 // get all unique values
 const getUnique = (items, value) => {
   return [...new Set(items.map(item => item[value]))]
 }
-export default function RoomFilter({ rooms }) {
-  const context = useContext(RoomContext)
+
+export default function RoomFilter() {
+  const context = useContext(useRoomContext)
   const {
-    handleChange,
-    type,
-    capacity,
-    price,
-    minPrice,
-    maxPrice,
-    minSize,
-    maxSize,
-    breakfast,
-    pets,
+    dispatch,
+    roomsObj: { rooms, mostExpensive, filters },
   } = context
+  const [localFilters, setLocalFilters] = useState({
+    ...filters,
+    maxPrice: mostExpensive,
+  })
+
+  // console.log('localFilters', localFilters)
+  const { type, capacity, maxPrice, breakfast, pets } = localFilters
+
+  const handleChange = event => {
+    const target = event.target
+    const value = target.type === 'checkbox' ? target.checked : target.value
+    const name = event.target.name
+
+    const updatedLocalFilters = { ...localFilters }
+    updatedLocalFilters[name] = value
+    setLocalFilters(updatedLocalFilters)
+
+    dispatch({
+      type: 'SET_FILTERS',
+      payload: localFilters,
+    })
+  }
+
+  var value
   // get unique types
   let types = getUnique(rooms, 'type')
   // add all
@@ -34,7 +53,7 @@ export default function RoomFilter({ rooms }) {
     )
   })
   let people = getUnique(rooms, 'capacity')
-  people = people.map((item, index) => {
+  people = people.sort().map((item, index) => {
     return (
       <option key={index} value={item}>
         {item}
@@ -42,78 +61,71 @@ export default function RoomFilter({ rooms }) {
     )
   })
   return (
-    <section className="filter-container">
-      <h2>"search rooms" </h2>
-      <form className="filter-form">
-        {/*select type  */}
-        <div className="form-group">
+    <section className={`${styles['filter-container']} section-container `}>
+      <h4>Search Listings</h4>
+      <SearchFeild page="form"/>
+      <form className={styles["filter-form"]}>
+        {
+          //select type  //
+        }
+        <div className={styles["form-group"]}>
           <label htmlFor="type">room type</label>
           <select
             name="type"
             id="type"
             value={type}
-            className="form-control"
+            className={styles["form-control"] }
             onChange={handleChange}
           >
             {types}
           </select>
         </div>
-        {/* end select type */}
-        {/*guests   */}
-        <div className="form-group">
+        {
+          //end select type
+        }
+        {
+          //guests   //
+        }
+        <div className={styles["form-group"]}>
           <label htmlFor="capacity">Guests</label>
           <select
             name="capacity"
             id="capacity"
             value={capacity}
-            className="form-control"
+            className={styles["form-control"] }
             onChange={handleChange}
           >
             {people}
           </select>
         </div>
-        {/* end guests  */}
-        {/* room price */}
-        <div className="form-group">
-          <label htmlFor="price">room price ${price}</label>
+        {
+          // end guests  //
+        }
+        {
+          // room price //
+        }
+        <div className={styles["form-group"]}>
+          <label htmlFor="price">room price ${maxPrice}</label>
           <input
             type="range"
-            name="price"
-            min={minPrice}
-            max={maxPrice}
+            name="maxPrice"
+            min="0"
+            max={mostExpensive}
             id="price"
-            value={price}
+            value={maxPrice}
             onChange={handleChange}
             className="form-control"
           />
         </div>
-        {/* end of room price */}
-        {/* size */}
-        <div className="form-group">
-          <label htmlFor="size">room size</label>
-          <div className="size-inputs">
-            <input
-              type="number"
-              name="minSize"
-              id="size"
-              value={minSize}
-              onChange={handleChange}
-              className="size-input"
-            />
-            <input
-              type="number"
-              name="maxSize"
-              id="size"
-              value={maxSize}
-              onChange={handleChange}
-              className="size-input"
-            />
-          </div>
-        </div>
-        {/* end of size */}
-        {/* extras  */}
-        <div className="form-group">
-          <div className="single-extra">
+        {
+          // end of room price //
+        }
+
+        {
+          // extras  //
+        }
+        <div className={styles["form-group"]}>
+          <div className={styles["single-extra"]}>
             <input
               type="checkbox"
               name="breakfast"
@@ -123,7 +135,7 @@ export default function RoomFilter({ rooms }) {
             />
             <label htmlFor="breakfast">breakfast</label>
           </div>
-          <div className="single-extra">
+          <div className={styles["single-extra"]}>
             <input
               type="checkbox"
               name="pets"
@@ -134,7 +146,9 @@ export default function RoomFilter({ rooms }) {
             <label htmlFor="pets">pets</label>
           </div>
         </div>
-        {/* end of extras  */}
+        {
+          // end of extras  //
+        }
       </form>
     </section>
   )

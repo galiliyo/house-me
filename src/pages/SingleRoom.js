@@ -1,7 +1,7 @@
 import React, {useState,useContext} from 'react'
 import defaultBcg from '../images/room-1.jpeg'
 import { Link } from 'react-router-dom'
-import { RoomContext } from '../context'
+import {useRoomContext}  from '../useContext'
 // import StyledHero from "../components/StyledHero";
 
 const  SingleRoom = (props)=>  {
@@ -11,7 +11,7 @@ const  SingleRoom = (props)=>  {
    
   
   // static contextType = RoomContext
-  const roomCtx = useContext(RoomContext) 
+  const roomCtx = useContext(useRoomContext) 
   
     const { getRoom } = roomCtx
     const room = getRoom(props.match.params.slug)

@@ -1,4 +1,4 @@
-.searchFeild {
+.searchFeildHome {
   width: 542px;
   height: 60px;
   background-color: var(--mainWhite);
@@ -27,6 +27,41 @@
     height: 3rem;
     width: 100%;
     font-size: 1.4rem;
+    outline: none;
+    border: none;
+  }
+}
+
+.searchFeildForm {
+  width: 100%;
+  margin: 0 auto;
+  height: 2.2rem;
+  background-color: var(--mainWhite);
+  border: 1px solid var(--darkGrey);
+  border-radius: 4px;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  & .icon {
+    font-size: 1.2rem;
+    flex-grow: 1;
+    color: var(--primaryColor);
+  }
+
+  & .iconContainer {
+    padding: 0.3rem;
+    cursor: pointer;
+    display: flex;
+    &:hover .icon {
+      color: var(--secondaryColor);
+    }
+  }
+
+  & input[type='text'] {
+    height: 2rem;
+    width: 100%;
+    font-size: 1rem;
     outline: none;
     border: none;
   }

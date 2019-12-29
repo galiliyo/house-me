@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Link } from 'react-router-dom'
 import SearchFeild from '../components/SearchFeild'
 import FeturedRooms from '../components/FeaturedRooms'
@@ -9,7 +8,6 @@ import illus2 from '../images/illustration-2.png'
 import illus3 from '../images/illustration-3.png'
 import Title from '../components/Title'
 import styles from './home.module.scss'
-import DatePicker from '../components/DatePicker'
 export default function Home() {
   return (
     <>
@@ -20,7 +18,7 @@ export default function Home() {
             <br />
             on the road
           </h2>
-          <SearchFeild />
+          <SearchFeild page="home"/>
           <Link to="/rooms" className="btnPrimary">
             All Listings
           </Link>

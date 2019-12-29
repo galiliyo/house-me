@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { RoomContext } from '../context'
+import { RoomContext } from '../useContext'
 import Loading from './Loading'
 import Room from './Room'
 import styles from './featuredRooms.module.scss'

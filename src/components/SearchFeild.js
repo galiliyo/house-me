@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import { IoMdClose, IoIosSearch } from 'react-icons/io'
 import styles from './searchFeild.module.scss'
 
-const SearchFeild = props => {
+const SearchFeild = (props) => {
   const [searchStr, setSearchStr] = useState('')
 
+  const classList =
+    props.page === 'home' ? styles.searchFeildHome : styles.searchFeildForm
+
   return (
-    <div className={styles.searchFeild}>
+    <div className={classList}>
       <input
         type="text"
         value={searchStr}

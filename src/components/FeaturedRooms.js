@@ -1,15 +1,17 @@
 import React, { useContext } from 'react'
-import { RoomContext } from '../context'
+import { useRoomContext } from '../useContext'
 import Loading from './Loading'
-import Title from "./Title"
+import Title from './Title'
 import Room from './Room'
 import styles from './featuredRooms.module.scss'
 
 const FeaturedRooms = () => {
-  const ctx = useContext(RoomContext)
+  const ctx = useContext(useRoomContext)
 
-  let { loading, featuredRooms: rooms } = ctx
-  rooms = rooms.map(room => {
+  const { roomsObj, dispatch } = ctx
+  const { featuredRooms, loading } = roomsObj
+
+  const rooms = featuredRooms.map(room => {
     return <Room key={room.id} room={room} />
   })
 
@@ -22,4 +24,5 @@ const FeaturedRooms = () => {
     </section>
   )
 }
+
 export default FeaturedRooms
