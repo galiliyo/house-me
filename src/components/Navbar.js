@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import logo from '../images/logo.svg'
 import styles from './navbar.module.scss'
 import { FaAlignRight } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default class Navbar extends Component {
   state = {
@@ -16,9 +16,9 @@ export default class Navbar extends Component {
       <nav className={styles.navbar}>
         <div className={styles.navCenter}>
           <div className={styles.navHeader}>
-            <Link to="/">
-              <img src={logo} alt="Beach Resort" />
-            </Link>
+            <NavLink to="/">
+              <img src={logo} alt="House Me" />
+            </NavLink>
             <button
               type="button"
               className={styles.navBtn}
@@ -35,10 +35,12 @@ export default class Navbar extends Component {
             }
           >
             <li>
-              <Link to="/">Home</Link>
+              <NavLink exact activeClassName="active" to="/" >
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/rooms">Rooms</Link>
+              <NavLink activeClassName="active" to="/rooms">Rooms</NavLink>
             </li>
           </ul>
         </div>

@@ -17,7 +17,7 @@ class RoomProvider extends Component {
     maxPrice: 0,
     minSize: 0,
     maxSize: 0,
-    breakfast: false,
+    accessible: false,
     pets: false,
   }
   // getData
@@ -88,7 +88,7 @@ class RoomProvider extends Component {
       price,
       minSize,
       maxSize,
-      breakfast,
+      accessible,
       pets,
     } = this.state
     // all the rooms
@@ -112,9 +112,9 @@ class RoomProvider extends Component {
     tempRooms = tempRooms.filter(
       room => room.size >= minSize && room.size <= maxSize
     )
-    // filter by breakfast
-    if (breakfast) {
-      tempRooms = tempRooms.filter(room => room.breakfast === true)
+    // filter by accessible
+    if (accessible) {
+      tempRooms = tempRooms.filter(room => room.accessible === true)
     }
     // filter by pets
     if (pets) {

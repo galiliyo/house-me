@@ -12,7 +12,7 @@ export const initialRoomsObj = {
     type: 'all',
     capacity: 1,
     maxPrice: 99999,
-    breakfast: false,
+    accessible: false,
     pets: false,
   },
 }

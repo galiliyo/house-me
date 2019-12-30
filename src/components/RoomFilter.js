@@ -21,7 +21,7 @@ export default function RoomFilter() {
   })
 
   // console.log('localFilters', localFilters)
-  const { type, capacity, maxPrice, breakfast, pets } = localFilters
+  const { type, capacity, maxPrice, accessible, pets } = localFilters
 
   const handleChange = event => {
     const target = event.target
@@ -128,12 +128,12 @@ export default function RoomFilter() {
           <div className={styles["single-extra"]}>
             <input
               type="checkbox"
-              name="breakfast"
-              id="breakfast"
-              checked={breakfast}
+              name="accessible"
+              id="accessible"
+              checked={accessible}
               onChange={handleChange}
             />
-            <label htmlFor="breakfast">breakfast</label>
+            <label htmlFor="accessible">accessible</label>
           </div>
           <div className={styles["single-extra"]}>
             <input

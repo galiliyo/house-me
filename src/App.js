@@ -11,6 +11,9 @@ import { Route, Switch } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
 
+// TODO: Single Page, search, price filter, map
+
+
 const App = () => {
   const [roomsObj, dispatch] = useReducer(reducer, initialRoomsObj)
 

@@ -14,7 +14,7 @@ const RoomProvider = props => {
       type: 'all',
       capacity: 1,
       maxPrice: 99999,
-      breakfast: false,
+      accessible: false,
       pets: false,
     },
   })

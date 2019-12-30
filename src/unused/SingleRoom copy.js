@@ -36,7 +36,7 @@ export default class SingleRoom extends Component {
       size,
       price,
       extras,
-      breakfast,
+      accessible,
       pets,
       images,
     } = room
@@ -65,7 +65,7 @@ export default class SingleRoom extends Component {
                 {capacity > 1 ? `${capacity} people` : `${capacity} person `}
               </h6>
               <h6>{pets ? 'pets allowed' : 'no pets allowed'}</h6>
-              <h6>{breakfast && 'free breakfast included'}</h6>
+              <h6>{accessible && 'free accessible included'}</h6>
             </article>
           </div>
         </section>
